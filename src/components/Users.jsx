@@ -6,7 +6,7 @@ const Users = () => {
   const { users } = useUsersStore();
   return (
     <>
-      {users.length ? (
+      {users.length > 0 ? (
         <div>
           <h2>Users</h2>
           <table>

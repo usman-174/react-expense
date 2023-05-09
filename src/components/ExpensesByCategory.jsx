@@ -1,6 +1,7 @@
 import React from "react";
 import { calculateTotalExpensesByCategory } from "../helpers/calculateCategoryExpenses";
-import useExpenseStore from "../store";
+import { useExpenseStore } from "../store";
+
 
 const ExpensesByCategory = () => {
   const { expenses } = useExpenseStore();
