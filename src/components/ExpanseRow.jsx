@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import  {useExpenseStore, useUsersStore } from "../store";
+import { useExpenseStore, useUsersStore } from "../store";
+import { CATEGORIES } from "./AddExpense";
 
 const ExpenseRow = ({ expense }) => {
   // State to manage edit mode and edited expense data
@@ -79,6 +80,7 @@ const ExpenseRow = ({ expense }) => {
                 </option>
               ))}
             </select>
+
             <select
               value={editExpense.category}
               onChange={(e) =>
@@ -87,11 +89,16 @@ const ExpenseRow = ({ expense }) => {
                   category: e.target.value,
                 }))
               }
+              name="category"
             >
               <option value="">Select Category</option>
-              <option value="Food">Food</option>
-              <option value="Travel">Travel</option>
-              <option value="Equipment">Equipment</option>
+              {CATEGORIES.map((cat, i) => {
+                return (
+                  <option key={i} value={cat}>
+                    {cat.toUpperCase()}
+                  </option>
+                );
+              })}
             </select>
             <input
               type="text"

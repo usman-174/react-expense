@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useExpenseStore, useUsersStore } from "../store";
-
+export const CATEGORIES = ['food','travel','equipment','medical']
 const AddExpense = () => {
   // State to manage the form input values for the new expense
   const [expense, setExpense] = useState({
@@ -105,9 +105,9 @@ const AddExpense = () => {
           name="category"
         >
           <option value="">Select Category</option>
-          <option value="Food">Food</option>
-          <option value="Travel">Travel</option>
-          <option value="Equipment">Equipment</option>
+          {CATEGORIES.map((cat,i)=>{
+            return <option key={i} value={cat}>{cat.toUpperCase()}</option>
+          })}
         </select>
         <input
           type="text"
